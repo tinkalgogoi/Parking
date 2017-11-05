@@ -27,6 +27,16 @@ func StartParkingCar(args []string) {
 			if is_Slot_Empty {
 
 				for i <= total_slots {
+					if i == total_slots {
+						c := Car{
+							Slot_No: i,
+							Car_No:  args[1],
+							Colour:  args[2],
+						}
+						cars = append(cars, c)
+						fmt.Println("Allocated slot number:", i)
+						break
+					}
 					if i != cars[i-1].Slot_No {
 						c := Car{
 							Slot_No: i,
