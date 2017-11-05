@@ -10,7 +10,7 @@ var current_empty_slot int = 1
 var total_slots int
 var err error
 var leave_count int
-var Is_Slot_Empty bool = false
+var is_Slot_Empty bool = false
 
 func StartParkingCar(args []string) {
 	//fmt.Println("args : ", args)
@@ -26,7 +26,7 @@ func StartParkingCar(args []string) {
 			fmt.Println("Sorry, parking lot is full")
 		} else {
 			i := 1
-			if Is_Slot_Empty {
+			if is_Slot_Empty {
 
 				for i <= total_slots {
 					if i != cars[i-1].Slot_No {
@@ -39,10 +39,10 @@ func StartParkingCar(args []string) {
 						fmt.Println("Allocated slot number:", i)
 						if leave_count > 0 {
 							leave_count--
-							Is_Slot_Empty = true
+							is_Slot_Empty = true
 						}
 						if leave_count <= 0 {
-							Is_Slot_Empty = false
+							is_Slot_Empty = false
 						}
 						break
 					}
@@ -66,7 +66,7 @@ func StartParkingCar(args []string) {
 		for _, c := range cars {
 			if c.Slot_No == i {
 				cars = append(cars[:j], cars[j+1:]...)
-				Is_Slot_Empty = true
+				is_Slot_Empty = true
 				leave_count++
 				fmt.Println("Slot No ", i, " is free")
 			}

@@ -38,7 +38,19 @@ func (c *Car) ParkOperation(command int) {
 			StartParkingCar(args)
 		}
 	} else if command == 2 {
-		fmt.Println("Implement file input")
+		text := strings.Replace("input.txt", "\r\n", "", -1)
+		if file, err := os.Open(text); err == nil {
+			// make sure it gets closed
+			defer file.Close()
+			// create a new scanner and read the file line by line
+			scanner := bufio.NewScanner(file)
+			for scanner.Scan() {
+				//fmt.Println(scanner.Text())
+				args := strings.Split(scanner.Text(), " ")
+				//fmt.Println(args[0]);
+				StartParkingCar(args)
+			}
+		}
 	}
 }
 func (v *Van) ParkOperation(command int) {

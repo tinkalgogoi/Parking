@@ -22,7 +22,7 @@ func main() {
 	car := &model.Car{}
 
 	vehicle := parking.ParkVehicle(car)
-	InputType = 1
+	InputType = 2
 	vehicle.ParkOperation(InputType)
 
 }
