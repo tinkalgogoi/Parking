@@ -1,5 +1,5 @@
 package parking
 
-type park interface {
+type ParkVehicle interface {
 	ParkOperation(command int)
 }
