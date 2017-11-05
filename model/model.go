@@ -28,17 +28,25 @@ func (c *Car) ParkOperation(command int) {
 			if err != nil {
 				fmt.Println(err)
 			}
-			// convert CRLF to LF for linux
-			//text = strings.Replace(text, "\n", "", -1)
-			// for windows
-			text = strings.Replace(text, "\r\n", "", -1)
-			//fmt.Println("text :", text)
+
+			text = strings.Replace(text, "\n", "", -1)
+			// for windows cmd
+			//text = strings.Replace(text, "\r\n", "", -1)
+
 			args := strings.Split(text, " ")
-			//fmt.Println("args :", args)
 			StartParkingCar(args)
 		}
 	} else if command == 2 {
-		text := strings.Replace("input.txt", "\r\n", "", -1)
+		fmt.Println("Enter the name of input file, Here its input.txt :")
+		reader := bufio.NewReader(os.Stdin)
+		text, err := reader.ReadString('\n')
+		if err != nil {
+			fmt.Println(err)
+		}
+		text = strings.Replace(text, "\n", "", -1)
+		//for windows cmd
+		//text := strings.Replace("input.txt", "\r\n", "", -1)
+
 		if file, err := os.Open(text); err == nil {
 			// make sure it gets closed
 			defer file.Close()

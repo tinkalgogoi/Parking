@@ -12,17 +12,14 @@ func main() {
 	fmt.Println("______________ MULTI-STOREY PARKING LOT MANAGEMENT SYSTEM ______________")
 	fmt.Println("Input Type: 1 for command | 2 for file")
 
-	//n, err := fmt.Scanf("%d", &InputType)
-	//if err != nil {
-	//	fmt.Println(err)
-	//} else {
-	//	fmt.Println(n)
-	//}
+	_, err := fmt.Scanf("%d", &InputType)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	car := &model.Car{}
 
 	vehicle := parking.ParkVehicle(car)
-	InputType = 2
 	vehicle.ParkOperation(InputType)
 
 }

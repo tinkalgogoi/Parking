@@ -16,8 +16,7 @@ func StartParkingCar(args []string) {
 	//fmt.Println("args : ", args)
 	switch args[0] {
 	case "create_parking_lot":
-		arg1 := args[1]
-		total_slots, err = strconv.Atoi(arg1)
+		total_slots, err = strconv.Atoi(args[1])
 		if err != nil {
 			fmt.Println(err)
 		}
