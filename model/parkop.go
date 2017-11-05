@@ -13,7 +13,6 @@ var leave_count int
 var is_Slot_Empty bool = false
 
 func StartParkingCar(args []string) {
-	//fmt.Println("args : ", args)
 	switch args[0] {
 	case "create_parking_lot":
 		total_slots, err = strconv.Atoi(args[1])
